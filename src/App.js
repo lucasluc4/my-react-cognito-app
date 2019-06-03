@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Amplify from 'aws-amplify';
+import amplify_config from './amplify-config';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import SignUpForm from './CognitoReactSignUpForm'
+import SignInForm from './CognitoReactSignInForm';
+
+Amplify.configure(amplify_config);
+
+class App extends Component {
+  state = {
+    signUpIsActive: false
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.toggleActivePage = this.toggleActivePage.bind(this);
+  }
+
+  toggleActivePage() {
+    this.setState({ signUpIsActive: !this.state.signUpIsActive });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>My React Cognito App</h1>
+        <button className="btn btn-light btn-toggle" onClick={this.toggleActivePage}>
+          { this.state.signUpIsActive ? "Ir para login" : "Ir para registro" }
+        </button>
+        { this.state.signUpIsActive ? <SignUpForm /> : <SignInForm /> }
+      </div>
+    );
+  }
+  
 }
 
 export default App;
