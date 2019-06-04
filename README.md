@@ -1,7 +1,9 @@
 ## Introduction
 
 This repository is a almost-fully working sample code of a React application using Amplify connected to a AWS Cognito User Pool. To make it work, you should change the file amplify-config.js adding your own information of a real AWS Cognito User Pool. 
+
 For a full explanation os this code, please refer to https://medium.com/@lucaslucm/usando-o-aws-cognito-como-servi%C3%A7o-de-autentica%C3%A7%C3%A3o-com-react-e-spring-33b5ac2e7448 (which is written in brazillian portuguese). I have plans to translate this article to english. In that case, I will update this reference to the english article once it's written.
+
 Fell free to fork this repository or to download and customize it in your own way. Any Pull Requests and suggestions are welcome.
 
 Thank you.
